@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - Euro-Vault</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <h1 class="logo">Euro-Vault</h1>
+        <nav>
+            <a href="index.html">Panel</a>
+            <a href="#">Transacciones</a>
+            <a href="profile.html">Perfil</a>
+            <button id="langToggle" style="background: none; border: none; cursor: pointer; font-size: 16px; padding: 10px;">ES</button>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- Profile Card -->
+        <section class="profile-card">
+            <img src="lucy.jpeg" alt="Profile Picturel">
+            <h2>Lucy Alex</h2>
+            <p>Premium Account</p>
+        </section>
+
+        <!-- Account Info -->
+        <section class="profile-info">
+            <h3>Información de la Cuenta</h3>
+
+            <div class="info-item">
+                <span>Correo Electrónico</span>
+                <span>lucyalex196@email.com</span>
+            </div>
+
+            <div class="info-item" style="display: none;">
+                <span>Phone</span>
+                <span>+34 900 000 0000</span>
+            </div>
+
+            <div class="info-item">
+                <span>Número de Cuenta</span>
+                <span>**** **** 2587</span>
+            </div>
+
+            <div class="info-item">
+                <span>Moneda</span>
+                <span>Euro (€)</span>
+            </div>
+        </section>
+
+        <!-- Settings -->
+        <section class="profile-actions">
+            <button onclick="window.location.href='edit-profile.html'">Editar Perfil</button>
+            <button onclick="window.location.href='change-password.html'">Cambiar Contraseña</button>
+            <button class="logout" onclick="window.location.href='index.html'">Cerrar Sesión</button>
+        </section>
+
+    </main>
+
+    <script>
+        // Language translations
+        const translations = {
+            es: {
+                panel: 'Panel',
+                transacciones: 'Transacciones',
+                perfil: 'Perfil',
+                informacionCuenta: 'Información de la Cuenta',
+                correo: 'Correo Electrónico',
+                numeroCuenta: 'Número de Cuenta',
+                moneda: 'Moneda',
+                editarPerfil: 'Editar Perfil',
+                cambiarContrasena: 'Cambiar Contraseña',
+                cerrarSesion: 'Cerrar Sesión'
+            },
+            en: {
+                panel: 'Dashboard',
+                transacciones: 'Transactions',
+                perfil: 'Profile',
+                informacionCuenta: 'Account Information',
+                correo: 'Email',
+                numeroCuenta: 'Account Number',
+                moneda: 'Currency',
+                editarPerfil: 'Edit Profile',
+                cambiarContrasena: 'Change Password',
+                cerrarSesion: 'Logout'
+            }
+        };
+
+        // Get current language from localStorage or default to Spanish
+        let currentLang = localStorage.getItem('appLanguage') || 'es';
+
+        // Function to update all text based on language
+        function updateLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('appLanguage', lang);
+            
+            // Update navigation
+            document.querySelectorAll('nav a')[0].textContent = translations[lang].panel;
+            document.querySelectorAll('nav a')[1].textContent = translations[lang].transacciones;
+            document.querySelectorAll('nav a')[2].textContent = translations[lang].perfil;
+            
+            // Update account info section
+            document.querySelector('.profile-info h3').textContent = translations[lang].informacionCuenta;
+            
+            // Update info items
+            const infoItems = document.querySelectorAll('.info-item span');
+            infoItems[0].textContent = translations[lang].correo;
+            infoItems[4].textContent = translations[lang].numeroCuenta;
+            infoItems[6].textContent = translations[lang].moneda;
+            
+            // Update action buttons
+            const buttons = document.querySelectorAll('.profile-actions button');
+            buttons[0].textContent = translations[lang].editarPerfil;
+            buttons[1].textContent = translations[lang].cambiarContrasena;
+            buttons[2].textContent = translations[lang].cerrarSesion;
+            
+            // Update language button
+            document.getElementById('langToggle').textContent = lang === 'es' ? 'EN' : 'ES';
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        // Language toggle button
+        document.getElementById('langToggle').addEventListener('click', function() {
+            const newLang = currentLang === 'es' ? 'en' : 'es';
+            updateLanguage(newLang);
+        });
+
+        // Initialize with saved language
+        updateLanguage(currentLang);
+    </script>
+
+</body>
+
+</html>

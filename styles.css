@@ -1,0 +1,323 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+}
+
+
+/* Header */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1e3a8a;
+    color: white;
+    padding: 15px 30px;
+}
+
+.header nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+
+/* Container */
+
+.container {
+    padding: 20px;
+}
+
+
+/* Balance Card */
+
+.balance-card {
+    background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.balance {
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+.btn {
+    background: white;
+    color: #1e3a8a;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+/* Actions */
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.actions button {
+    flex: 1;
+    margin: 5px;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #3b82f6;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* Transactions */
+
+.transactions {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    max-height: 350px;
+    overflow-y: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.transaction {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.debit {
+    color: red;
+}
+
+.credit {
+    color: green;
+}
+
+
+/* Profile Card */
+
+.profile-card {
+    background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+    color: white;
+    text-align: center;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.profile-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+/* Info Section */
+
+.profile-info {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+
+/* Actions */
+
+.profile-actions {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-actions button {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #3b82f6;
+    color: white;
+    cursor: pointer;
+}
+
+.logout {
+    background: red;
+}
+
+.withdraw-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    max-width: 400px;
+    margin: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.withdraw-card h2 {
+    margin-bottom: 20px;
+}
+
+
+/* Form styling */
+
+.withdraw-card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.withdraw-card label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.withdraw-card input,
+.withdraw-card select {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.withdraw-card button {
+    margin-top: 20px;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #1e3a8a;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.withdraw-card button:hover {
+    background: #3b82f6;
+}
+
+.login-container {
+    display: flex;
+    height: 100vh;
+}
+
+
+/* Left side */
+
+.login-left {
+    flex: 1;
+    background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-left h1 {
+    font-size: 40px;
+}
+
+
+/* Right side */
+
+.login-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+}
+
+.login-right h2 {
+    margin-bottom: 20px;
+}
+
+
+/* Form */
+
+.login-right form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-right input {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.login-right button {
+    padding: 15px;
+    background: #1e3a8a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.login-right button:hover {
+    background: #3b82f6;
+}
+
+.signup-text {
+    margin-top: 15px;
+}
+
+.sidebar-welcome {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-welcome img {
+    border-radius: 50%;
+    margin-right: 15px;
+    width: 80px;
+    height: 80px;
+}
+
+.sidebar-welcome h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.sidebar-welcome p {
+    margin: 5px 0 0 0;
+    color: gray;
+    font-size: 14px;
+}
+
+.files-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.file-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+}

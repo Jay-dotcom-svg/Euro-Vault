@@ -1,0 +1,24 @@
+/* Tablet view */
+
+@media (max-width: 900px) {
+    .files-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* Mobile view */
+
+@media (max-width: 600px) {
+    .files-grid {
+        grid-template-columns: 1fr;
+    }
+    .file-card {
+        padding: 15px;
+    }
+    .header nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}

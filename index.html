@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Euro-Vault - Inicio de Sesión</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <!-- Left side branding -->
+        <div class="login-left">
+            <h1>Euro-Vault</h1>
+            <p>Seguro • Rápido • Banca Simple</p>
+            <button id="langToggle" style="background: none; border: none; cursor: pointer; font-size: 14px; padding: 10px; color: white; margin-top: 20px;">EN</button>
+        </div>
+
+        <!-- Right side form -->
+        <div class="login-right">
+            <h2>Iniciar Sesión</h2>
+
+            <form id="loginForm" onsubmit="handleLogin(event)">
+
+                <label>Correo Electrónico</label>
+                <input type="email" id="email" name="email" placeholder="Ingrese el correo" required>
+
+                <label>Contraseña</label>
+                <input type="password" id="password" name="password" placeholder="Ingrese la contraseña" required>
+
+                <div id="errorMessage" style="color: red; margin-bottom: 10px; display: none;"></div>
+
+                <button type="submit">Iniciar Sesión</button>
+
+            </form>
+
+            <p class="signup-text">
+                ¿No tienes cuenta? <a href="#">Regístrate</a>
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        const translations = {
+            es: {
+                subtitulo: 'Seguro • Rápido • Banca Simple',
+                iniciar: 'Iniciar Sesión',
+                correo: 'Correo Electrónico',
+                correoPlaceholder: 'Ingrese el correo',
+                contrasena: 'Contraseña',
+                contrasenaPlaceholder: 'Ingrese la contraseña',
+                boton: 'Iniciar Sesión',
+                noTienes: '¿No tienes cuenta?',
+                registrate: 'Regístrate',
+                error: 'Correo o contraseña inválidos. Por favor intente de nuevo.'
+            },
+            en: {
+                subtitulo: 'Secure • Fast • Simple Banking',
+                iniciar: 'Sign In',
+                correo: 'Email',
+                correoPlaceholder: 'Enter email',
+                contrasena: 'Password',
+                contrasenaPlaceholder: 'Enter password',
+                boton: 'Login',
+                noTienes: 'Don\'t have an account?',
+                registrate: 'Sign up',
+                error: 'Invalid email or password. Please try again.'
+            }
+        };
+
+        let currentLang = localStorage.getItem('appLanguage') || 'es';
+
+        function updateLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('appLanguage', lang);
+            
+            document.querySelector('.login-left p').textContent = translations[lang].subtitulo;
+            document.querySelector('.login-right h2').textContent = translations[lang].iniciar;
+            
+            const labels = document.querySelectorAll('.login-right label');
+            labels[0].textContent = translations[lang].correo;
+            labels[1].textContent = translations[lang].contrasena;
+            
+            const inputs = document.querySelectorAll('.login-right input[type="email"], .login-right input[type="password"]');
+            inputs[0].placeholder = translations[lang].correoPlaceholder;
+            inputs[1].placeholder = translations[lang].contrasenaPlaceholder;
+            
+            document.querySelector('form button').textContent = translations[lang].boton;
+            
+            const signupText = document.querySelector('.signup-text');
+            signupText.innerHTML = translations[lang].noTienes + ' <a href="#">' + translations[lang].registrate + '</a>';
+            
+            document.getElementById('langToggle').textContent = lang === 'es' ? 'EN' : 'ES';
+            document.documentElement.lang = lang;
+        }
+
+        document.getElementById('langToggle').addEventListener('click', function() {
+            const newLang = currentLang === 'es' ? 'en' : 'es';
+            updateLanguage(newLang);
+        });
+
+        updateLanguage(currentLang);
+
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            const correctEmail = 'lucyalex960@gmail.com';
+            const correctPassword = 'Lucy960$$';
+            
+            if (email === correctEmail && password === correctPassword) {
+                // Credentials are correct, redirect to home.html
+                window.location.href = 'home.html';
+            } else {
+                // Credentials are incorrect, show error message
+                errorMessage.textContent = translations[currentLang].error;
+                errorMessage.style.display = 'block';
+                document.getElementById('loginForm').reset();
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir Dinero - Euro-Vault</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <h1 class="logo">Euro-Vault</h1>
+        <nav>
+            <a href="index.html">Panel</a>
+            <a href="#">Transacciones</a>
+            <a href="profile.html">Perfil</a>
+            <button id="langToggle" style="background: none; border: none; cursor: pointer; font-size: 16px; padding: 10px;">ES</button>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- Add Money Card -->
+        <section class="withdraw-card">
+            <h2>Añadir Dinero</h2>
+
+            <form>
+                <!-- Amount -->
+                <label>Cantidad (€)</label>
+                <input type="number" placeholder="Ingrese la cantidad" required>
+
+                <!-- Method -->
+                <label>Método de Pago</label>
+                <select required>
+                <option value="">Seleccione método</option>
+                <option>Tarjeta de Crédito</option>
+                <option>Tarjeta de Débito</option>
+                <option>Transferencia Bancaria</option>
+                <option>PayPal</option>
+            </select>
+
+                <!-- Card Details -->
+                <label>Detalles de la Tarjeta</label>
+                <input type="text" placeholder="Ingrese información de la tarjeta" required>
+
+                <!-- Button -->
+                <button type="submit">Añadir Dinero</button>
+            </form>
+        </section>
+
+    </main>
+
+    <script>
+        const translations = {
+            es: {
+                panel: 'Panel',
+                transacciones: 'Transacciones',
+                perfil: 'Perfil',
+                titulo: 'Añadir Dinero',
+                cantidad: 'Cantidad (€)',
+                metodo: 'Método de Pago',
+                seleccionar: 'Seleccione método',
+                detalles: 'Detalles de la Tarjeta',
+                boton: 'Añadir Dinero'
+            },
+            en: {
+                panel: 'Dashboard',
+                transacciones: 'Transactions',
+                perfil: 'Profile',
+                titulo: 'Add Money',
+                cantidad: 'Amount (€)',
+                metodo: 'Payment Method',
+                seleccionar: 'Select method',
+                detalles: 'Card Details',
+                boton: 'Add Money'
+            }
+        };
+
+        let currentLang = localStorage.getItem('appLanguage') || 'es';
+
+        function updateLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('appLanguage', lang);
+            
+            document.querySelectorAll('nav a')[0].textContent = translations[lang].panel;
+            document.querySelectorAll('nav a')[1].textContent = translations[lang].transacciones;
+            document.querySelectorAll('nav a')[2].textContent = translations[lang].perfil;
+            
+            document.querySelector('.withdraw-card h2').textContent = translations[lang].titulo;
+            
+            const labels = document.querySelectorAll('label');
+            labels[0].textContent = translations[lang].cantidad;
+            labels[1].textContent = translations[lang].metodo;
+            labels[2].textContent = translations[lang].detalles;
+            
+            document.querySelector('select option').textContent = translations[lang].seleccionar;
+            document.querySelector('form button').textContent = translations[lang].boton;
+            
+            document.getElementById('langToggle').textContent = lang === 'es' ? 'EN' : 'ES';
+            document.documentElement.lang = lang;
+        }
+
+        document.getElementById('langToggle').addEventListener('click', function() {
+            const newLang = currentLang === 'es' ? 'en' : 'es';
+            updateLanguage(newLang);
+        });
+
+        updateLanguage(currentLang);
+    </script>
+
+</body>
+
+</html>

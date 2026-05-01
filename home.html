@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Euro-Vault - Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <h1 class="logo">Euro-Vault</h1>
+        <nav>
+            <a href="#">Panel</a>
+            <a href="#">Transacciones</a>
+            <a href="profile.html">Perfil</a>
+            <button id="langToggle" style="background: none; border: none; cursor: pointer; font-size: 16px; padding: 10px;">ES</button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="sidebar-welcome">
+
+            <img src="lucy.jpeg" alt="Profile Picture">
+
+            <div>
+                <h3>Bienvenido de vuelta, Lucy👋</h3>
+                <p>Tu resumen financiero está listo</p>
+            </div>
+
+        </div>
+
+        <!-- Balance Card -->
+        <section class="balance-card">
+            <h2>Saldo Actual</h2>
+            <p class="balance">€ 1,879,789</p>
+            <button class="btn" onclick="window.location.href='add-money.html'">Añadir Dinero</button>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="actions">
+            <button onclick="window.location.href='send.html'">Enviar</button>
+            <button onclick="window.location.href='receive.html'">Recibir</button>
+            <button onclick="window.location.href='withdraw.html'">Retirar</button>
+        </section>
+
+        <!-- Transactions -->
+        <section class="transactions">
+            <h2>Transacciones Recientes</h2>
+
+            <div class="transaction">
+                <div>
+                    <p class="title">Transferencia a John</p>
+                    <small>Apr 30, 2026</small>
+                </div>
+                <span class="debit">- €200</span>
+            </div>
+
+            <div class="transaction">
+                <div>
+                    <p class="title">Salario</p>
+                    <small>Apr 29, 2026</small>
+                </div>
+                <span class="credit">+ €3,000</span>
+            </div>
+
+            <div class="transaction">
+                <div>
+                    <p class="title">Factura de Electricidad</p>
+                    <small>Apr 28, 2026</small>
+                </div>
+                <span class="debit">- €120</span>
+            </div>
+
+            <div class="transaction">
+                <div>
+                    <p class="title">Suscripción Netflix</p>
+                    <small>Apr 27, 2026</small>
+                </div>
+                <span class="debit">- €15</span>
+            </div>
+
+            <div class="transaction">
+                <div>
+                    <p class="title">Pago Freelance</p>
+                    <small>Apr 26, 2026</small>
+                </div>
+                <span class="credit">+ €500</span>
+            </div>
+
+            <div class="transaction">
+                <div>
+                    <p class="title">Compras de Supermercado</p>
+                    <small>Apr 25, 2026</small>
+                </div>
+                <span class="debit">- €90</span>
+            </div>
+
+            <div class="transaction">
+                <div>
+                    <p class="title">Viaje en Uber</p>
+                    <small>Apr 24, 2026</small>
+                </div>
+                <span class="debit">- €18</span>
+            </div>
+
+            <div class="transaction">
+                <div>
+                    <p class="title">Membresía de Gimnasio</p>
+                    <small>Apr 23, 2026</small>
+                </div>
+                <span class="debit">- €45</span>
+            </div>
+
+            <div class="transaction">
+                <div>
+                    <p class="title">Transferencia de Sarah</p>
+                    <small>Apr 22, 2026</small>
+                </div>
+                <span class="credit">+ €250</span>
+            </div>
+
+            <div class="transaction">
+                <div>
+                    <p class="title">Restaurante</p>
+                    <small>Apr 21, 2026</small>
+                </div>
+                <span class="debit">- €60</span>
+            </div>
+
+            <div class="transaction">
+                <div>
+                    <p class="title">Factura de Internet</p>
+                    <small>Apr 20, 2026</small>
+                </div>
+                <span class="debit">- €35</span>
+            </div>
+
+            <div class="transaction">
+                <div>
+                    <p class="title">Bonificación</p>
+                    <small>Apr 19, 2026</small>
+                </div>
+                <span class="credit">+ €800</span>
+            </div>
+
+            <div class="transaction">
+                <div>
+                    <p class="title">Combustible</p>
+                    <small>Apr 18, 2026</small>
+                </div>
+                <span class="debit">- €70</span>
+            </div>
+
+            <div class="transaction">
+                <div>
+                    <p class="title">Compras</p>
+                    <small>Apr 17, 2026</small>
+                </div>
+                <span class="debit">- €150</span>
+            </div>
+
+            <div class="transaction">
+                <div>
+                    <p class="title">Dividendo</p>
+                    <small>Apr 16, 2026</small>
+                </div>
+                <span class="credit">+ €400</span>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+        // Language translations
+        const translations = {
+            es: {
+                panel: 'Panel',
+                transacciones: 'Transacciones',
+                perfil: 'Perfil',
+                bienvenido: 'Bienvenido de vuelta, Lucy👋',
+                resumen: 'Tu resumen financiero está listo',
+                saldoActual: 'Saldo Actual',
+                anadirDinero: 'Añadir Dinero',
+                enviar: 'Enviar',
+                recibir: 'Recibir',
+                retirar: 'Retirar',
+                transaccionesRecientes: 'Transacciones Recientes',
+                transferenciaJohn: 'Transferencia a John',
+                salario: 'Salario',
+                facturaElectricidad: 'Factura de Electricidad',
+                suscripcionNetflix: 'Suscripción Netflix',
+                pagoFreelance: 'Pago Freelance',
+                comprasSuperMercado: 'Compras de Supermercado',
+                viajeUber: 'Viaje en Uber',
+                membresiGimnasio: 'Membresía de Gimnasio',
+                transferenciaS: 'Transferencia de Sarah',
+                restaurante: 'Restaurante',
+                facturaInternet: 'Factura de Internet',
+                bonificacion: 'Bonificación',
+                combustible: 'Combustible',
+                compras: 'Compras',
+                dividendo: 'Dividendo'
+            },
+            en: {
+                panel: 'Dashboard',
+                transacciones: 'Transactions',
+                perfil: 'Profile',
+                bienvenido: 'Welcome back, Lucy👋',
+                resumen: 'Your financial overview is ready',
+                saldoActual: 'Current Balance',
+                anadirDinero: 'Add Money',
+                enviar: 'Send',
+                recibir: 'Receive',
+                retirar: 'Withdraw',
+                transaccionesRecientes: 'Recent Transactions',
+                transferenciaJohn: 'Transfer to John',
+                salario: 'Salary',
+                facturaElectricidad: 'Electricity Bill',
+                suscripcionNetflix: 'Netflix Subscription',
+                pagoFreelance: 'Freelance Payment',
+                comprasSuperMercado: 'Grocery Shopping',
+                viajeUber: 'Uber Ride',
+                membresiGimnasio: 'Gym Membership',
+                transferenciaS: 'Transfer from Sarah',
+                restaurante: 'Restaurant',
+                facturaInternet: 'Internet Bill',
+                bonificacion: 'Bonus',
+                combustible: 'Fuel',
+                compras: 'Shopping',
+                dividendo: 'Dividend'
+            }
+        };
+
+        // Get current language from localStorage or default to Spanish
+        let currentLang = localStorage.getItem('appLanguage') || 'es';
+
+        // Function to update all text based on language
+        function updateLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('appLanguage', lang);
+            
+            // Update navigation
+            document.querySelectorAll('nav a')[0].textContent = translations[lang].panel;
+            document.querySelectorAll('nav a')[1].textContent = translations[lang].transacciones;
+            document.querySelectorAll('nav a')[2].textContent = translations[lang].perfil;
+            
+            // Update welcome message
+            document.querySelector('.sidebar-welcome h3').textContent = translations[lang].bienvenido;
+            document.querySelector('.sidebar-welcome p').textContent = translations[lang].resumen;
+            
+            // Update balance card
+            document.querySelector('.balance-card h2').textContent = translations[lang].saldoActual;
+            document.querySelector('.btn').textContent = translations[lang].anadirDinero;
+            
+            // Update action buttons
+            const actionButtons = document.querySelectorAll('.actions button');
+            actionButtons[0].textContent = translations[lang].enviar;
+            actionButtons[1].textContent = translations[lang].recibir;
+            actionButtons[2].textContent = translations[lang].retirar;
+            
+            // Update transactions section title
+            document.querySelector('.transactions h2').textContent = translations[lang].transaccionesRecientes;
+            
+            // Update transaction titles
+            const transactionTitles = document.querySelectorAll('.transaction .title');
+            const titleKeys = [
+                'transferenciaJohn',
+                'salario',
+                'facturaElectricidad',
+                'suscripcionNetflix',
+                'pagoFreelance',
+                'comprasSuperMercado',
+                'viajeUber',
+                'membresiGimnasio',
+                'transferenciaS',
+                'restaurante',
+                'facturaInternet',
+                'bonificacion',
+                'combustible',
+                'compras',
+                'dividendo'
+            ];
+            
+            transactionTitles.forEach((title, index) => {
+                if (titleKeys[index]) {
+                    title.textContent = translations[lang][titleKeys[index]];
+                }
+            });
+            
+            // Update language button
+            document.getElementById('langToggle').textContent = lang === 'es' ? 'EN' : 'ES';
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        // Language toggle button
+        document.getElementById('langToggle').addEventListener('click', function() {
+            const newLang = currentLang === 'es' ? 'en' : 'es';
+            updateLanguage(newLang);
+        });
+
+        // Initialize with saved language
+        updateLanguage(currentLang);
+    </script>
+
+</body>
+
+</html>

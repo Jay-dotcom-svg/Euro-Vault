@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil - Euro-Vault</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <h1 class="logo">Euro-Vault</h1>
+        <nav>
+            <a href="index.html">Panel</a>
+            <a href="#">Transacciones</a>
+            <a href="profile.html">Perfil</a>
+            <button id="langToggle" style="background: none; border: none; cursor: pointer; font-size: 16px; padding: 10px;">ES</button>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- Edit Profile Card -->
+        <section class="withdraw-card">
+            <h2>Editar Perfil</h2>
+
+            <form id="editProfileForm" onsubmit="handleEditProfile(event)">
+                <!-- Full Name -->
+                <label>Nombre Completo</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Ingrese su nombre completo" value="Lucy Alex" required>
+
+                <!-- Email -->
+                <label>Correo Electrónico</label>
+                <input type="email" id="email" name="email" placeholder="Ingrese su correo" value="lucyalex196@email.com" required>
+
+                <!-- Phone -->
+                <label>Número de Teléfono</label>
+                <input type="tel" id="phone" name="phone" placeholder="Ingrese su número de teléfono" value="">
+
+                <!-- Account Status -->
+                <label>Estado de la Cuenta</label>
+                <input type="text" id="accountStatus" name="accountStatus" placeholder="Estado de la cuenta" value="Cuenta Premium" disabled>
+
+                <div id="successMessage" style="color: green; margin-bottom: 10px; display: none;"></div>
+
+                <!-- Button -->
+                <button type="submit">Guardar Cambios</button>
+                <button type="button" onclick="window.location.href='profile.html'" style="background-color: #ccc; color: #000;">Cancelar</button>
+            </form>
+        </section>
+
+    </main>
+
+    <script>
+        const translations = {
+            es: {
+                panel: 'Panel',
+                transacciones: 'Transacciones',
+                perfil: 'Perfil',
+                titulo: 'Editar Perfil',
+                nombreCompleto: 'Nombre Completo',
+                correo: 'Correo Electrónico',
+                telefono: 'Número de Teléfono',
+                estado: 'Estado de la Cuenta',
+                guardar: 'Guardar Cambios',
+                cancelar: 'Cancelar',
+                alertaNombre: 'El nombre completo no puede estar vacío.',
+                alertaCorreo: 'El correo no puede estar vacío.',
+                exito: '¡Perfil actualizado exitosamente! Redirigiendo...'
+            },
+            en: {
+                panel: 'Dashboard',
+                transacciones: 'Transactions',
+                perfil: 'Profile',
+                titulo: 'Edit Profile',
+                nombreCompleto: 'Full Name',
+                correo: 'Email',
+                telefono: 'Phone Number',
+                estado: 'Account Status',
+                guardar: 'Save Changes',
+                cancelar: 'Cancel',
+                alertaNombre: 'Full name cannot be empty.',
+                alertaCorreo: 'Email cannot be empty.',
+                exito: 'Profile updated successfully! Redirecting...'
+            }
+        };
+
+        let currentLang = localStorage.getItem('appLanguage') || 'es';
+
+        function updateLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('appLanguage', lang);
+            
+            document.querySelectorAll('nav a')[0].textContent = translations[lang].panel;
+            document.querySelectorAll('nav a')[1].textContent = translations[lang].transacciones;
+            document.querySelectorAll('nav a')[2].textContent = translations[lang].perfil;
+            
+            document.querySelector('.withdraw-card h2').textContent = translations[lang].titulo;
+            
+            const labels = document.querySelectorAll('label');
+            labels[0].textContent = translations[lang].nombreCompleto;
+            labels[1].textContent = translations[lang].correo;
+            labels[2].textContent = translations[lang].telefono;
+            labels[3].textContent = translations[lang].estado;
+            
+            const buttons = document.querySelectorAll('.withdraw-card button');
+            buttons[0].textContent = translations[lang].guardar;
+            buttons[1].textContent = translations[lang].cancelar;
+            
+            document.getElementById('langToggle').textContent = lang === 'es' ? 'EN' : 'ES';
+            document.documentElement.lang = lang;
+        }
+
+        document.getElementById('langToggle').addEventListener('click', function() {
+            const newLang = currentLang === 'es' ? 'en' : 'es';
+            updateLanguage(newLang);
+        });
+
+        updateLanguage(currentLang);
+
+        function handleEditProfile(event) {
+            event.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const successMessage = document.getElementById('successMessage');
+            
+            // Validate inputs
+            if (!fullName.trim()) {
+                alert(translations[currentLang].alertaNombre);
+                return;
+            }
+            
+            if (!email.trim()) {
+                alert(translations[currentLang].alertaCorreo);
+                return;
+            }
+            
+            // Show success message
+            successMessage.textContent = translations[currentLang].exito;
+            successMessage.style.display = 'block';
+            
+            // In a real application, you would send this data to a server
+            // For now, we'll just redirect back to profile after a delay
+            setTimeout(() => {
+                window.location.href = 'profile.html';
+            }, 2000);
+        }
+    </script>
+
+</body>
+
+</html>
